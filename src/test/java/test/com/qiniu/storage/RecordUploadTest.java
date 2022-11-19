@@ -19,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.nio.file.Files;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -255,7 +256,7 @@ public class RecordUploadTest {
     @Test
     @Tag("IntegrationTest")
     public void testLastModify() throws IOException {
-        File f = File.createTempFile("qiniutest", "b");
+        File f = Files.createTempFile("qiniutest", "b").toFile();
         String folder = f.getParent();
         FileRecorder fr = new FileRecorder(folder);
 

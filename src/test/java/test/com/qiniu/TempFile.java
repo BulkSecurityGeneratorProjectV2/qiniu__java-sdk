@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.file.Files;
 import java.util.Random;
 
 /**
@@ -23,7 +24,7 @@ public final class TempFile {
         FileOutputStream fos = null;
         try {
             long size = 1024 * kiloSize;
-            File f = File.createTempFile("qiniu_" + kiloSize + "k", ".tmp");
+            File f = Files.createTempFile("qiniu_" + kiloSize + "k", ".tmp").toFile();
             f.createNewFile();
             fos = new FileOutputStream(f);
             byte[] b = getByte();
@@ -79,7 +80,7 @@ public final class TempFile {
         FileOutputStream fos = null;
         try {
             long size = 1024 * kiloSize;
-            File f = File.createTempFile("qiniu_" + kiloSize + "k", ".tmp");
+            File f = Files.createTempFile("qiniu_" + kiloSize + "k", ".tmp").toFile();
             f.createNewFile();
             fos = new FileOutputStream(f);
             long s = 0;
